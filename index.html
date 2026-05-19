@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Riad Hosaain Alif — Portfolio</title>
+  <link rel="shortcut icon" href="./personal.jpg" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          },
+          colors: {
+            brand: {
+              50: '#f0f4ef',
+              100: '#E8EDDF',
+              200: '#A3B18A',
+              300: '#588157',
+              400: '#3A5A40',
+              500: '#344E41',
+              600: '#2d4438',
+              700: '#1C1917',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: #E8EDDF; color: #1C1917; overflow-x: hidden; }
+
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #E8EDDF; }
+    ::-webkit-scrollbar-thumb { background: #A3B18A; border-radius: 3px; }
+
+    /* Typing Animation */
+    .typing-text {
+      display: inline-block;
+      border-right: 3px solid #344E41;
+      animation: blink 0.7s step-end infinite;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    /* Floating particles around image */
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      animation: floatParticle linear infinite;
+    }
+    @keyframes floatParticle {
+      0% { transform: translateY(0) translateX(0) scale(1); opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { transform: translateY(-120px) translateX(var(--dx)) scale(0); opacity: 0; }
+    }
+
+    /* Image glow animation */
+    .image-glow {
+      position: absolute;
+      inset: -8px;
+      border-radius: 50%;
+      background: conic-gradient(from 0deg, #344E41, #588157, #A3B18A, #588157, #344E41);
+      animation: rotateGlow 4s linear infinite;
+      z-index: 0;
+      filter: blur(8px);
+      opacity: 0.5;
+    }
+    @keyframes rotateGlow {
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Skill card hover */
+    .skill-card {
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .skill-card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 20px 40px rgba(52,78,65,0.15);
+    }
+    .skill-card:hover .skill-icon {
+      transform: scale(1.2) rotate(5deg);
+    }
+    .skill-icon {
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Nav link underline */
+    .nav-link {
+      position: relative;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #344E41;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Floating background shapes */
+    .bg-shape {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.06;
+      pointer-events: none;
+    }
+    .bg-shape-1 {
+      width: 400px; height: 400px;
+      background: #344E41;
+      top: 10%; left: -10%;
+      animation: floatShape1 20s ease-in-out infinite;
+    }
+    .bg-shape-2 {
+      width: 300px; height: 300px;
+      background: #588157;
+      top: 50%; right: -5%;
+      animation: floatShape2 25s ease-in-out infinite;
+    }
+    .bg-shape-3 {
+      width: 250px; height: 250px;
+      background: #A3B18A;
+      bottom: 10%; left: 20%;
+      animation: floatShape3 18s ease-in-out infinite;
+    }
+    @keyframes floatShape1 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(60px, 40px) scale(1.1); }
+    }
+    @keyframes floatShape2 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(-50px, -30px) scale(1.15); }
+    }
+    @keyframes floatShape3 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(40px, -50px) scale(1.05); }
+    }
+
+    /* Hobbies icon animation */
+    .hobby-card:hover .hobby-icon {
+      animation: bounceHobby 0.6s ease;
+    }
+    @keyframes bounceHobby {
+      0%, 100% { transform: translateY(0); }
+      30% { transform: translateY(-10px); }
+      60% { transform: translateY(-5px); }
+    }
+
+    /* Contact form input focus */
+    .form-input {
+      transition: all 0.3s ease;
+    }
+    .form-input:focus {
+      border-color: #344E41;
+      box-shadow: 0 0 0 3px rgba(52,78,65,0.1);
+    }
+
+    /* Section divider */
+    .section-divider {
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(90deg, #344E41, #A3B18A);
+      border-radius: 2px;
+    }
+
+    /* Mobile menu */
+    .mobile-menu {
+      transform: translateX(100%);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
+
+    /* Stagger children */
+    .stagger-children > * {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .stagger-children.visible > *:nth-child(1) { transition-delay: 0.05s; opacity: 1; transform: translateY(0); }
+    .stagger-children.visible > *:nth-child(2) { transition-delay: 0.1s; opacity: 1; transform: translateY(0); }
+    .stagger-children.visible > *:nth-child(3) { transition-delay: 0.15s; opacity: 1; transform: translateY(0); }
+    .stagger-children.visible > *:nth-child(4) { transition-delay: 0.2s; opacity: 1; transform: translateY(0); }
+    .stagger-children.visible > *:nth-child(5) { transition-delay: 0.25s; opacity: 1; transform: translateY(0); }
+    .stagger-children.visible > *:nth-child(6) { transition-delay: 0.3s; opacity: 1; transform: translateY(0); }
+    .stagger-children.visible > *:nth-child(7) { transition-delay: 0.35s; opacity: 1; transform: translateY(0); }
+    .stagger-children.visible > *:nth-child(8) { transition-delay: 0.4s; opacity: 1; transform: translateY(0); }
+    .stagger-children.visible > *:nth-child(9) { transition-delay: 0.45s; opacity: 1; transform: translateY(0); }
+    .stagger-children.visible > *:nth-child(10) { transition-delay: 0.5s; opacity: 1; transform: translateY(0); }
+    .stagger-children.visible > *:nth-child(11) { transition-delay: 0.55s; opacity: 1; transform: translateY(0); }
+    .stagger-children.visible > *:nth-child(12) { transition-delay: 0.6s; opacity: 1; transform: translateY(0); }
+
+    /* Progress bar animation */
+    .skill-progress {
+      width: 0;
+      transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .skill-progress.animate {
+      width: var(--progress);
+    }
+
+    /* Pulse dot */
+    .pulse-dot {
+      animation: pulseDot 2s ease-in-out infinite;
+    }
+    @keyframes pulseDot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.5); }
+    }
+
+    /* Image emergence animation */
+    .image-emerge {
+      animation: emergeFromBg 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    @keyframes emergeFromBg {
+      0% { clip-path: circle(0% at 50% 50%); opacity: 0; }
+      100% { clip-path: circle(50% at 50% 50%); opacity: 1; }
+    }
+
+    /* Sparkle on image */
+    .sparkle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: #fff;
+      border-radius: 50%;
+      animation: sparkle 2s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes sparkle {
+      0%, 100% { opacity: 0; transform: scale(0); }
+      50% { opacity: 1; transform: scale(1); }
+    }
+
+    /* Footer wave */
+    .footer-wave {
+      animation: waveFooter 3s ease-in-out infinite;
+    }
+    @keyframes waveFooter {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-3px); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Shapes -->
+  <div class="bg-shape bg-shape-1"></div>
+  <div class="bg-shape bg-shape-2"></div>
+  <div class="bg-shape bg-shape-3"></div>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500" style="background: rgba(232,237,223,0.85); backdrop-filter: blur(12px);">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="#hero" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-lg bg-brand-500 flex items-center justify-center transition-transform duration-300 group-hover:rotate-12">
+          <span class="text-white font-serif font-semibold text-lg">R</span>
+        </div>
+        <span class="font-serif font-semibold text-xl text-brand-700 tracking-tight">Alif</span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#hero" class="nav-link text-sm font-medium text-brand-700 hover:text-brand-500 transition-colors">Home</a>
+        <a href="#about" class="nav-link text-sm font-medium text-stone-600 hover:text-brand-500 transition-colors">About</a>
+        <a href="#skills" class="nav-link text-sm font-medium text-stone-600 hover:text-brand-500 transition-colors">Skills</a>
+        <a href="#hobbies" class="nav-link text-sm font-medium text-stone-600 hover:text-brand-500 transition-colors">Hobbies</a>
+        <a href="#contact" class="nav-link text-sm font-medium text-stone-600 hover:text-brand-500 transition-colors">Contact</a>
+        <a href="#contact" class="ml-2 px-5 py-2.5 bg-brand-500 text-white text-sm font-medium rounded-lg hover:bg-brand-600 transition-all duration-150 shadow-md hover:shadow-lg">
+          Hire Me
+        </a>
+      </div>
+
+      <!-- Mobile Toggle -->
+      <button id="menuToggle" class="md:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5 rounded-lg hover:bg-brand-100 transition-colors" aria-label="Menu">
+        <span class="menu-line w-6 h-0.5 bg-brand-700 transition-all duration-300"></span>
+        <span class="menu-line w-6 h-0.5 bg-brand-700 transition-all duration-300"></span>
+        <span class="menu-line w-4 h-0.5 bg-brand-700 transition-all duration-300 self-end mr-2"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="mobile-menu fixed inset-y-0 right-0 w-72 bg-white/95 backdrop-blur-lg z-[60] shadow-2xl flex flex-col pt-24 px-8 gap-2">
+    <button id="menuClose" class="absolute top-6 right-6 w-10 h-10 flex items-center justify-center rounded-lg hover:bg-brand-100 transition-colors">
+      <iconify-icon icon="lucide:x" width="24" class="text-brand-700"></iconify-icon>
+    </button>
+    <a href="#hero" class="mobile-nav-link py-3 px-4 rounded-lg text-brand-700 font-medium hover:bg-brand-50 transition-colors">Home</a>
+    <a href="#about" class="mobile-nav-link py-3 px-4 rounded-lg text-stone-600 font-medium hover:bg-brand-50 transition-colors">About</a>
+    <a href="#skills" class="mobile-nav-link py-3 px-4 rounded-lg text-stone-600 font-medium hover:bg-brand-50 transition-colors">Skills</a>
+    <a href="#hobbies" class="mobile-nav-link py-3 px-4 rounded-lg text-stone-600 font-medium hover:bg-brand-50 transition-colors">Hobbies</a>
+    <a href="#contact" class="mobile-nav-link py-3 px-4 rounded-lg text-stone-600 font-medium hover:bg-brand-50 transition-colors">Contact</a>
+    <div class="mt-4">
+      <a href="#contact" class="block text-center px-5 py-3 bg-brand-500 text-white font-medium rounded-lg hover:bg-brand-600 transition-colors">Hire Me</a>
+    </div>
+  </div>
+  <div id="menuOverlay" class="fixed inset-0 bg-black/30 z-[55] hidden"></div>
+
+  <!-- ========== HERO SECTION ========== -->
+  <section id="hero" class="min-h-screen flex items-center relative pt-20">
+    <div class="max-w-7xl mx-auto px-6 w-full">
+      <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <!-- Left Content -->
+        <div class="order-2 md:order-1">
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-100 mb-6 reveal">
+            <span class="w-2 h-2 rounded-full bg-green-500 pulse-dot"></span>
+            <span class="text-xs font-semibold text-brand-500 uppercase tracking-widest">Available for work</span>
+          </div>
+
+          <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl font-normal tracking-tight leading-[1.05] text-brand-700 mb-4 reveal">
+            Hi, I'm<br>
+            <span class="text-brand-500">Riad Hosaain</span><br>
+            <span class="text-brand-300">Alif</span>
+          </h1>
+
+          <div class="h-10 mb-6 reveal">
+            <!-- <span class="text-lg md:text-xl text-stone-500 font-light">I'm a </span> -->
+            <span id="typingText" class="typing-text text-lg md:text-xl font-semibold text-brand-500"></span>
+          </div>
+
+          <p class="text-base text-stone-500 font-light leading-relaxed max-w-md mb-8 reveal">
+            Passionate about building modern web applications and software solutions. Currently pursuing BSc in Computer Science while crafting digital experiences.
+          </p>
+
+          <div class="flex flex-wrap gap-4 reveal">
+            <a href="#contact" class="inline-flex items-center gap-2 px-7 py-3.5 bg-brand-500 text-white font-medium rounded-lg hover:bg-brand-600 transition-all duration-150 shadow-lg hover:shadow-xl">
+              Get In Touch
+              <iconify-icon icon="lucide:arrow-right" width="18"></iconify-icon>
+            </a>
+            <a href="#skills" class="inline-flex items-center gap-2 px-7 py-3.5 border-2 border-brand-500 text-brand-500 font-medium rounded-lg hover:bg-brand-500 hover:text-white transition-all duration-300">
+              View Skills
+            </a>
+          </div>
+
+          <!-- Quick Stats -->
+          <div class="flex gap-8 mt-10 reveal">
+            <div>
+              <div class="text-2xl font-serif font-semibold text-brand-700">3.5</div>
+              <div class="text-xs text-stone-400 uppercase tracking-wider">Diploma GPA</div>
+            </div>
+            <div class="w-px bg-stone-200"></div>
+            <div>
+              <div class="text-2xl font-serif font-semibold text-brand-700">12+</div>
+              <div class="text-xs text-stone-400 uppercase tracking-wider">Skills</div>
+            </div>
+            <div class="w-px bg-stone-200"></div>
+            <div>
+              <div class="text-2xl font-serif font-semibold text-brand-700">BSc</div>
+              <div class="text-xs text-stone-400 uppercase tracking-wider">Running</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right - Image -->
+        <div class="order-1 md:order-2 flex justify-center reveal">
+          <div class="relative" id="imageContainer">
+            <!-- Glow -->
+            <div class="image-glow"></div>
+
+            <!-- Sparkles -->
+            <div class="sparkle" style="top: 5%; left: 10%; animation-delay: 0s;"></div>
+            <div class="sparkle" style="top: 15%; right: 5%; animation-delay: 0.5s;"></div>
+            <div class="sparkle" style="bottom: 20%; left: 0%; animation-delay: 1s;"></div>
+            <div class="sparkle" style="bottom: 10%; right: 15%; animation-delay: 1.5s;"></div>
+            <div class="sparkle" style="top: 40%; left: -5%; animation-delay: 0.8s;"></div>
+
+            <!-- Particles Container -->
+            <div id="particlesContainer" class="absolute inset-0 pointer-events-none overflow-visible"></div>
+
+            <!-- Profile Image -->
+            <div class="relative z-10 w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden image-emerge border-4 border-white shadow-2xl">
+              <img src="./personal.jpg" alt="Riad Hosaain Alif" class="w-full h-full object-cover">
+            </div>
+
+            <!-- Decorative Ring -->
+            <div class="absolute inset-[-16px] rounded-full border-2 border-dashed border-brand-200 opacity-50 animate-spin" style="animation-duration: 30s;"></div>
+            <div class="absolute inset-[-32px] rounded-full border border-dotted border-brand-100 opacity-30 animate-spin" style="animation-duration: 45s; animation-direction: reverse;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 reveal">
+      <span class="text-xs text-stone-400 uppercase tracking-widest">Scroll</span>
+      <div class="w-5 h-8 border-2 border-stone-300 rounded-full flex justify-center pt-1">
+        <div class="w-1 h-2 bg-brand-400 rounded-full animate-bounce"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ABOUT SECTION ========== -->
+  <section id="about" class="py-24 relative">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16 reveal">
+        <span class="text-xs font-semibold text-brand-300 uppercase tracking-[0.2em] mb-3 block">Get to know me</span>
+        <h2 class="font-serif text-4xl md:text-5xl font-normal tracking-tight text-brand-700">About Me</h2>
+        <div class="section-divider mx-auto mt-4"></div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <!-- About Image -->
+        <div class="reveal">
+          <div class="relative rounded-2xl overflow-hidden shadow-xl group">
+            <img src="./about.png" alt="Workspace" class="w-full h-[400px] object-cover transition-transform duration-700 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-700/40 to-transparent"></div>
+            <!-- Floating badge -->
+            <div class="absolute bottom-6 left-6 bg-white/90 backdrop-blur-sm rounded-xl px-5 py-3 shadow-lg">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-brand-500 flex items-center justify-center">
+                  <iconify-icon icon="lucide:graduation-cap" width="20" class="text-white"></iconify-icon>
+                </div>
+                <div>
+                  <div class="text-sm font-semibold text-brand-700">BSc CS</div>
+                  <div class="text-xs text-stone-400">Currently Running</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- About Content -->
+        <div class="reveal">
+          <h3 class="font-serif text-2xl font-semibold text-brand-700 mb-4">
+            A passionate developer who loves turning ideas into reality
+          </h3>
+          <p class="text-stone-500 font-light leading-relaxed mb-4">
+            I'm <strong class="text-brand-700 font-medium">Riad Hosaain Alif</strong>, a dedicated web developer and software engineer from Bangladesh. I completed my Diploma in Computer Science with a <strong class="text-brand-500 font-medium">3.5 GPA</strong>, building a solid foundation in programming and technology.
+          </p>
+          <p class="text-stone-500 font-light leading-relaxed mb-6">
+            Currently, I'm pursuing my <strong class="text-brand-700 font-medium">BSc in Computer Science</strong> while continuously expanding my skill set. From frontend magic with React & Next.js to backend power with Node.js & Django — I enjoy every layer of development.
+          </p>
+
+          <!-- Info Grid -->
+          <div class="grid grid-cols-2 gap-4 mb-8">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-lg bg-brand-100 flex items-center justify-center flex-shrink-0">
+                <iconify-icon icon="lucide:user" width="16" class="text-brand-500"></iconify-icon>
+              </div>
+              <div>
+                <div class="text-xs text-stone-400">Name</div>
+                <div class="text-sm font-medium text-brand-700">Riad Hosaain Alif</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-lg bg-brand-100 flex items-center justify-center flex-shrink-0">
+                <iconify-icon icon="lucide:graduation-cap" width="16" class="text-brand-500"></iconify-icon>
+              </div>
+              <div>
+                <div class="text-xs text-stone-400">Education</div>
+                <div class="text-sm font-medium text-brand-700">BSc CS (Running)</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-lg bg-brand-100 flex items-center justify-center flex-shrink-0">
+                <iconify-icon icon="lucide:map-pin" width="16" class="text-brand-500"></iconify-icon>
+              </div>
+              <div>
+                <div class="text-xs text-stone-400">Location</div>
+                <div class="text-sm font-medium text-brand-700">Bangladesh</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-lg bg-brand-100 flex items-center justify-center flex-shrink-0">
+                <iconify-icon icon="lucide:briefcase" width="16" class="text-brand-500"></iconify-icon>
+              </div>
+              <div>
+                <div class="text-xs text-stone-400">Freelance</div>
+                <div class="text-sm font-medium text-green-600">Available</div>
+              </div>
+            </div>
+          </div>
+
+          <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3 bg-brand-500 text-white font-medium rounded-lg hover:bg-brand-600 transition-all duration-150 shadow-md">
+            Let's Talk
+            <iconify-icon icon="lucide:message-circle" width="18"></iconify-icon>
+          </a>
+        </div>
+      </div>
+
+      <!-- Education Timeline -->
+      <div class="mt-20 reveal">
+        <h3 class="font-serif text-2xl font-semibold text-brand-700 text-center mb-10">Education Journey</h3>
+        <div class="max-w-2xl mx-auto relative">
+          <div class="absolute left-6 md:left-1/2 top-0 bottom-0 w-0.5 bg-brand-200 md:-translate-x-px"></div>
+
+          <!-- Diploma -->
+          <div class="relative flex md:justify-end mb-10 pl-16 md:pl-0 md:pr-[calc(50%+2rem)]">
+            <div class="absolute left-4 md:left-1/2 top-1 w-4 h-4 rounded-full bg-brand-500 border-4 border-brand-100 md:-translate-x-1/2 z-10"></div>
+            <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow w-full">
+              <span class="text-xs font-semibold text-brand-300 uppercase tracking-wider">Completed</span>
+              <h4 class="font-serif font-semibold text-brand-700 mt-1">Diploma in Computer Science</h4>
+              <p class="text-sm text-stone-400 mt-1">GPA: 3.5 / 4.0</p>
+              <p class="text-sm text-stone-500 font-light mt-2">Built a strong foundation in programming, databases, networking, and software development principles.</p>
+            </div>
+          </div>
+
+          <!-- BSc -->
+          <div class="relative flex md:justify-start mb-4 pl-16 md:pl-[calc(50%+2rem)]">
+            <div class="absolute left-4 md:left-1/2 top-1 w-4 h-4 rounded-full bg-brand-300 border-4 border-brand-100 md:-translate-x-1/2 z-10 pulse-dot"></div>
+            <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow w-full border-2 border-brand-100">
+              <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-green-600 uppercase tracking-wider">
+                <span class="w-1.5 h-1.5 rounded-full bg-green-500 pulse-dot"></span>
+                In Progress
+              </span>
+              <h4 class="font-serif font-semibold text-brand-700 mt-1">BSc in Computer Science</h4>
+              <p class="text-sm text-stone-400 mt-1">Currently Running</p>
+              <p class="text-sm text-stone-500 font-light mt-2">Deepening knowledge in advanced algorithms, system design, AI, and modern software engineering practices.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SKILLS SECTION ========== -->
+  <section id="skills" class="py-24 bg-brand-700 relative overflow-hidden">
+    <!-- Decorative -->
+    <div class="absolute top-0 left-0 w-64 h-64 rounded-full bg-brand-600 opacity-30 -translate-x-1/2 -translate-y-1/2"></div>
+    <div class="absolute bottom-0 right-0 w-96 h-96 rounded-full bg-brand-600 opacity-20 translate-x-1/3 translate-y-1/3"></div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+      <div class="text-center mb-16 reveal">
+        <span class="text-xs font-semibold text-brand-200 uppercase tracking-[0.2em] mb-3 block">What I know</span>
+        <h2 class="font-serif text-4xl md:text-5xl font-normal tracking-tight text-white">My Skills</h2>
+        <div class="section-divider mx-auto mt-4" style="background: linear-gradient(90deg, #A3B18A, #588157);"></div>
+        <p class="text-brand-200 font-light mt-4 max-w-lg mx-auto">Technologies and tools I work with to bring ideas to life</p>
+      </div>
+
+      <!-- Skills Grid -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 stagger-children" id="skillsGrid">
+        <!-- HTML -->
+        <div class="skill-card bg-white/10 backdrop-blur-sm rounded-xl p-5 text-center border border-white/10 cursor-default">
+          <div class="skill-icon w-14 h-14 mx-auto mb-3 flex items-center justify-center">
+            <iconify-icon icon="logos:html-5" width="42"></iconify-icon>
+          </div>
+          <div class="text-sm font-medium text-white">HTML</div>
+          <div class="mt-2 h-1 bg-white/10 rounded-full overflow-hidden">
+            <div class="skill-progress h-full bg-brand-200 rounded-full" style="--progress: 95%"></div>
+          </div>
+        </div>
+
+        <!-- CSS -->
+        <div class="skill-card bg-white/10 backdrop-blur-sm rounded-xl p-5 text-center border border-white/10 cursor-default">
+          <div class="skill-icon w-14 h-14 mx-auto mb-3 flex items-center justify-center">
+            <iconify-icon icon="logos:css-3" width="42"></iconify-icon>
+          </div>
+          <div class="text-sm font-medium text-white">CSS</div>
+          <div class="mt-2 h-1 bg-white/10 rounded-full overflow-hidden">
+            <div class="skill-progress h-full bg-brand-200 rounded-full" style="--progress: 90%"></div>
+          </div>
+        </div>
+
+        <!-- JavaScript -->
+        <div class="skill-card bg-white/10 backdrop-blur-sm rounded-xl p-5 text-center border border-white/10 cursor-default">
+          <div class="skill-icon w-14 h-14 mx-auto mb-3 flex items-center justify-center">
+            <iconify-icon icon="logos:javascript" width="42"></iconify-icon>
+          </div>
+          <div class="text-sm font-medium text-white">JavaScript</div>
+          <div class="mt-2 h-1 bg-white/10 rounded-full overflow-hidden">
+            <div class="skill-progress h-full bg-brand-200 rounded-full" style="--progress: 85%"></div>
+          </div>
+        </div>
+
+        <!-- React -->
+        <div class="skill-card bg-white/10 backdrop-blur-sm rounded-xl p-5 text-center border border-white/10 cursor-default">
+          <div class="skill-icon w-14 h-14 mx-auto mb-3 flex items-center justify-center">
+            <iconify-icon icon="logos:react" width="42"></iconify-icon>
+          </div>
+          <div class="text-sm font-medium text-white">React</div>
+          <div class="mt-2 h-1 bg-white/10 rounded-full overflow-hidden">
+            <div class="skill-progress h-full bg-brand-200 rounded-full" style="--progress: 80%"></div>
+          </div>
+        </div>
+
+        <!-- Next.js -->
+        <div class="skill-card bg-white/10 backdrop-blur-sm rounded-xl p-5 text-center border border-white/10 cursor-default">
+          <div class="skill-icon w-14 h-14 mx-auto mb-3 flex items-center justify-center">
+            <iconify-icon icon="logos:nextjs-icon" width="42" style="color: white;"></iconify-icon>
+          </div>
+          <div class="text-sm font-medium text-white">Next.js</div>
+          <div class="mt-2 h-1 bg-white/10 rounded-full overflow-hidden">
+            <div class="skill-progress h-full bg-brand-200 rounded-full" style="--progress: 75%"></div>
+          </div>
+        </div>
+
+        <!-- Node.js -->
+        <div class="skill-card bg-white/10 backdrop-blur-sm rounded-xl p-5 text-center border border-white/10 cursor-default">
+          <div class="skill-icon w-14 h-14 mx-auto mb-3 flex items-center justify-center">
+            <iconify-icon icon="logos:nodejs-icon" width="42"></iconify-icon>
+          </div>
+          <div class="text-sm font-medium text-white">Node.js</div>
+          <div class="mt-2 h-1 bg-white/10 rounded-full overflow-hidden">
+            <div class="skill-progress h-full bg-brand-200 rounded-full" style="--progress: 75%"></div>
+          </div>
+        </div>
+
+        <!-- PostgreSQL -->
+        <div class="skill-card bg-white/10 backdrop-blur-sm rounded-xl p-5 text-center border border-white/10 cursor-default">
+          <div class="skill-icon w-14 h-14 mx-auto mb-3 flex items-center justify-center">
+            <iconify-icon icon="logos:postgresql" width="42"></iconify-icon>
+          </div>
+          <div class="text-sm font-medium text-white">PostgreSQL</div>
+          <div class="mt-2 h-1 bg-white/10 rounded-full overflow-hidden">
+            <div class="skill-progress h-full bg-brand-200 rounded-full" style="--progress: 70%"></div>
+          </div>
+        </div>
+
+        <!-- MongoDB -->
+        <div class="skill-card bg-white/10 backdrop-blur-sm rounded-xl p-5 text-center border border-white/10 cursor-default">
+          <div class="skill-icon w-14 h-14 mx-auto mb-3 flex items-center justify-center">
+            <iconify-icon icon="logos:mongodb-icon" width="42"></iconify-icon>
+          </div>
+          <div class="text-sm font-medium text-white">MongoDB</div>
+          <div class="mt-2 h-1 bg-white/10 rounded-full overflow-hidden">
+            <div class="skill-progress h-full bg-brand-200 rounded-full" style="--progress: 72%"></div>
+          </div>
+        </div>
+
+        <!-- Python -->
+        <div class="skill-card bg-white/10 backdrop-blur-sm rounded-xl p-5 text-center border border-white/10 cursor-default">
+          <div class="skill-icon w-14 h-14 mx-auto mb-3 flex items-center justify-center">
+            <iconify-icon icon="logos:python" width="42"></iconify-icon>
+          </div>
+          <div class="text-sm font-medium text-white">Python</div>
+          <div class="mt-2 h-1 bg-white/10 rounded-full overflow-hidden">
+            <div class="skill-progress h-full bg-brand-200 rounded-full" style="--progress: 78%"></div>
+          </div>
+        </div>
+
+        <!-- Django -->
+        <div class="skill-card bg-white/10 backdrop-blur-sm rounded-xl p-5 text-center border border-white/10 cursor-default">
+          <div class="skill-icon w-14 h-14 mx-auto mb-3 flex items-center justify-center">
+            <iconify-icon icon="logos:django-icon" width="42" style="color: white;"></iconify-icon>
+          </div>
+          <div class="text-sm font-medium text-white">Django</div>
+          <div class="mt-2 h-1 bg-white/10 rounded-full overflow-hidden">
+            <div class="skill-progress h-full bg-brand-200 rounded-full" style="--progress: 68%"></div>
+          </div>
+        </div>
+
+        <!-- Networking -->
+        <div class="skill-card bg-white/10 backdrop-blur-sm rounded-xl p-5 text-center border border-white/10 cursor-default">
+          <div class="skill-icon w-14 h-14 mx-auto mb-3 flex items-center justify-center">
+            <iconify-icon icon="mdi:network-outline" width="42" style="color: #A3B18A;"></iconify-icon>
+          </div>
+          <div class="text-sm font-medium text-white">Networking</div>
+          <div class="mt-2 h-1 bg-white/10 rounded-full overflow-hidden">
+            <div class="skill-progress h-full bg-brand-200 rounded-full" style="--progress: 60%"></div>
+          </div>
+        </div>
+
+        <!-- Docker -->
+        <div class="skill-card bg-white/10 backdrop-blur-sm rounded-xl p-5 text-center border border-white/10 cursor-default">
+          <div class="skill-icon w-14 h-14 mx-auto mb-3 flex items-center justify-center">
+            <iconify-icon icon="logos:docker-icon" width="42"></iconify-icon>
+          </div>
+          <div class="text-sm font-medium text-white">Docker</div>
+          <div class="mt-2 h-1 bg-white/10 rounded-full overflow-hidden">
+            <div class="skill-progress h-full bg-brand-200 rounded-full" style="--progress: 62%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== HOBBIES SECTION ========== -->
+  <section id="hobbies" class="py-24 relative">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16 reveal">
+        <span class="text-xs font-semibold text-brand-300 uppercase tracking-[0.2em] mb-3 block">Beyond Code</span>
+        <h2 class="font-serif text-4xl md:text-5xl font-normal tracking-tight text-brand-700">My Hobbies</h2>
+        <div class="section-divider mx-auto mt-4"></div>
+        <p class="text-stone-500 font-light mt-4 max-w-lg mx-auto">Life beyond the keyboard — the things that keep me inspired and energized</p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 stagger-children" id="hobbiesGrid">
+        <!-- Coding -->
+        <div class="hobby-card group bg-white rounded-xl p-6 text-center shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-default">
+          <div class="hobby-icon w-16 h-16 mx-auto mb-4 rounded-2xl bg-brand-50 flex items-center justify-center group-hover:bg-brand-500 transition-colors duration-300">
+            <iconify-icon icon="lucide:code-2" width="28" class="text-brand-500 group-hover:text-white transition-colors duration-300"></iconify-icon>
+          </div>
+          <h4 class="text-sm font-semibold text-brand-700">Coding</h4>
+          <p class="text-xs text-stone-400 mt-1">Building things</p>
+        </div>
+
+        <!-- Gaming -->
+        <div class="hobby-card group bg-white rounded-xl p-6 text-center shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-default">
+          <div class="hobby-icon w-16 h-16 mx-auto mb-4 rounded-2xl bg-brand-50 flex items-center justify-center group-hover:bg-brand-500 transition-colors duration-300">
+            <iconify-icon icon="lucide:gamepad-2" width="28" class="text-brand-500 group-hover:text-white transition-colors duration-300"></iconify-icon>
+          </div>
+          <h4 class="text-sm font-semibold text-brand-700">Gaming</h4>
+          <p class="text-xs text-stone-400 mt-1">Strategy & RPG</p>
+        </div>
+
+        <!-- Reading -->
+        <div class="hobby-card group bg-white rounded-xl p-6 text-center shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-default">
+          <div class="hobby-icon w-16 h-16 mx-auto mb-4 rounded-2xl bg-brand-50 flex items-center justify-center group-hover:bg-brand-500 transition-colors duration-300">
+            <iconify-icon icon="lucide:book-open" width="28" class="text-brand-500 group-hover:text-white transition-colors duration-300"></iconify-icon>
+          </div>
+          <h4 class="text-sm font-semibold text-brand-700">Reading</h4>
+          <p class="text-xs text-stone-400 mt-1">Tech & Sci-Fi</p>
+        </div>
+
+        <!-- Music -->
+        <div class="hobby-card group bg-white rounded-xl p-6 text-center shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-default">
+          <div class="hobby-icon w-16 h-16 mx-auto mb-4 rounded-2xl bg-brand-50 flex items-center justify-center group-hover:bg-brand-500 transition-colors duration-300">
+            <iconify-icon icon="lucide:music" width="28" class="text-brand-500 group-hover:text-white transition-colors duration-300"></iconify-icon>
+          </div>
+          <h4 class="text-sm font-semibold text-brand-700">Music</h4>
+          <p class="text-xs text-stone-400 mt-1">Lo-fi & Ambient</p>
+        </div>
+
+        <!-- Traveling -->
+        <div class="hobby-card group bg-white rounded-xl p-6 text-center shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-default">
+          <div class="hobby-icon w-16 h-16 mx-auto mb-4 rounded-2xl bg-brand-50 flex items-center justify-center group-hover:bg-brand-500 transition-colors duration-300">
+            <iconify-icon icon="lucide:plane" width="28" class="text-brand-500 group-hover:text-white transition-colors duration-300"></iconify-icon>
+          </div>
+          <h4 class="text-sm font-semibold text-brand-700">Traveling</h4>
+          <p class="text-xs text-stone-400 mt-1">Exploring nature</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT SECTION ========== -->
+  <section id="contact" class="py-24 bg-brand-50 relative overflow-hidden">
+    <div class="absolute top-20 right-10 w-72 h-72 rounded-full bg-brand-200 opacity-20"></div>
+    <div class="absolute bottom-10 left-5 w-48 h-48 rounded-full bg-brand-300 opacity-10"></div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+      <div class="text-center mb-16 reveal">
+        <span class="text-xs font-semibold text-brand-300 uppercase tracking-[0.2em] mb-3 block">Let's Connect</span>
+        <h2 class="font-serif text-4xl md:text-5xl font-normal tracking-tight text-brand-700">Contact Me</h2>
+        <div class="section-divider mx-auto mt-4"></div>
+        <p class="text-stone-500 font-light mt-4 max-w-lg mx-auto">Have a project in mind or just want to say hello? Feel free to reach out!</p>
+      </div>
+
+      <div class="grid md:grid-cols-5 gap-10 lg:gap-16">
+        <!-- Contact Info -->
+        <div class="md:col-span-2 reveal">
+          <div class="space-y-6">
+            <!-- Email -->
+            <div class="flex items-start gap-4 group">
+              <div class="w-12 h-12 rounded-xl bg-brand-500 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300 shadow-md">
+                <iconify-icon icon="lucide:mail" width="20" class="text-white"></iconify-icon>
+              </div>
+              <div>
+                <div class="text-sm font-semibold text-brand-700">Email</div>
+                <a href="mailto:Mr.r.hossain1998@gmail.com" class="text-sm text-stone-500 hover:text-brand-500 transition-colors">Mr.r.hossain1998@gmail.com</a>
+              </div>
+            </div>
+
+            <!-- Phone -->
+            <div class="flex items-start gap-4 group">
+              <div class="w-12 h-12 rounded-xl bg-brand-500 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300 shadow-md">
+                <iconify-icon icon="lucide:phone" width="20" class="text-white"></iconify-icon>
+              </div>
+              <div>
+                <div class="text-sm font-semibold text-brand-700">Phone</div>
+                <a href="tel:+8801712345678" class="text-sm text-stone-500 hover:text-brand-500 transition-colors">+880 1712-345678</a>
+              </div>
+            </div>
+
+            <!-- Location -->
+            <div class="flex items-start gap-4 group">
+              <div class="w-12 h-12 rounded-xl bg-brand-500 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300 shadow-md">
+                <iconify-icon icon="lucide:map-pin" width="20" class="text-white"></iconify-icon>
+              </div>
+              <div>
+                <div class="text-sm font-semibold text-brand-700">Location</div>
+                <span class="text-sm text-stone-500">khilkhet, Dhaka, Bangladesh</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Social Links -->
+          <div class="mt-10">
+            <div class="text-sm font-semibold text-brand-700 mb-4">Follow Me</div>
+            <div class="flex gap-3">
+              <a href="#" class="w-11 h-11 rounded-xl bg-white flex items-center justify-center shadow-md hover:bg-brand-500 hover:shadow-lg transition-all duration-300 group">
+                <iconify-icon icon="mdi:github" width="22" class="text-brand-700 group-hover:text-white transition-colors"></iconify-icon>
+              </a>
+              <a href="#" class="w-11 h-11 rounded-xl bg-white flex items-center justify-center shadow-md hover:bg-brand-500 hover:shadow-lg transition-all duration-300 group">
+                <iconify-icon icon="mdi:linkedin" width="22" class="text-brand-700 group-hover:text-white transition-colors"></iconify-icon>
+              </a>
+              <a href="#" class="w-11 h-11 rounded-xl bg-white flex items-center justify-center shadow-md hover:bg-brand-500 hover:shadow-lg transition-all duration-300 group">
+                <iconify-icon icon="mdi:facebook" width="22" class="text-brand-700 group-hover:text-white transition-colors"></iconify-icon>
+              </a>
+              <a href="#" class="w-11 h-11 rounded-xl bg-white flex items-center justify-center shadow-md hover:bg-brand-500 hover:shadow-lg transition-all duration-300 group">
+                <iconify-icon icon="mdi:twitter" width="22" class="text-brand-700 group-hover:text-white transition-colors"></iconify-icon>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="md:col-span-3 reveal">
+          <form id="contactForm" class="bg-white rounded-2xl p-8 shadow-lg">
+            <div class="grid sm:grid-cols-2 gap-5 mb-5">
+              <div>
+                <label class="block text-sm font-medium text-brand-700 mb-2">Your Name</label>
+                <input type="text" placeholder="John Doe" class="form-input w-full px-4 py-3 rounded-lg border border-stone-200 bg-brand-50/50 text-sm text-brand-700 placeholder:text-stone-300 outline-none">
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-brand-700 mb-2">Your Email</label>
+                <input type="email" placeholder="john@example.com" class="form-input w-full px-4 py-3 rounded-lg border border-stone-200 bg-brand-50/50 text-sm text-brand-700 placeholder:text-stone-300 outline-none">
+              </div>
+            </div>
+            <div class="mb-5">
+              <label class="block text-sm font-medium text-brand-700 mb-2">Subject</label>
+              <input type="text" placeholder="Project Discussion" class="form-input w-full px-4 py-3 rounded-lg border border-stone-200 bg-brand-50/50 text-sm text-brand-700 placeholder:text-stone-300 outline-none">
+            </div>
+            <div class="mb-6">
+              <label class="block text-sm font-medium text-brand-700 mb-2">Message</label>
+              <textarea rows="5" placeholder="Tell me about your project..." class="form-input w-full px-4 py-3 rounded-lg border border-stone-200 bg-brand-50/50 text-sm text-brand-700 placeholder:text-stone-300 outline-none resize-none"></textarea>
+            </div>
+            <button type="submit" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-brand-500 text-white font-medium rounded-lg hover:bg-brand-600 transition-all duration-150 shadow-md hover:shadow-lg">
+              Send Message
+              <iconify-icon icon="lucide:send" width="18"></iconify-icon>
+            </button>
+            <div id="formMessage" class="mt-4 text-sm font-medium hidden"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="bg-brand-700 text-white pt-16 pb-8 relative overflow-hidden">
+    <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-300 to-transparent opacity-30"></div>
+
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-3 gap-10 mb-12">
+        <!-- Brand -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center">
+              <span class="font-serif font-semibold text-lg text-white">R</span>
+            </div>
+            <span class="font-serif font-semibold text-xl tracking-tight">Riad Hosaain Alif</span>
+          </div>
+          <p class="text-brand-200 font-light text-sm leading-relaxed max-w-xs">
+            A passionate web developer & software engineer dedicated to creating modern, efficient, and beautiful digital solutions.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="font-semibold text-sm uppercase tracking-wider text-brand-200 mb-4">Quick Links</h4>
+          <div class="space-y-3">
+            <a href="#hero" class="block text-sm text-white/70 hover:text-white transition-colors hover:translate-x-1 transform duration-200">Home</a>
+            <a href="#about" class="block text-sm text-white/70 hover:text-white transition-colors hover:translate-x-1 transform duration-200">About</a>
+            <a href="#skills" class="block text-sm text-white/70 hover:text-white transition-colors hover:translate-x-1 transform duration-200">Skills</a>
+            <a href="#contact" class="block text-sm text-white/70 hover:text-white transition-colors hover:translate-x-1 transform duration-200">Contact</a>
+          </div>
+        </div>
+
+        <!-- Social -->
+        <div>
+          <h4 class="font-semibold text-sm uppercase tracking-wider text-brand-200 mb-4">Connect</h4>
+          <div class="flex gap-3">
+            <a href="#" class="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center hover:bg-white/20 transition-all duration-300 hover:scale-110" aria-label="GitHub">
+              <iconify-icon icon="mdi:github" width="22" class="text-white"></iconify-icon>
+            </a>
+            <a href="#" class="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center hover:bg-white/20 transition-all duration-300 hover:scale-110" aria-label="LinkedIn">
+              <iconify-icon icon="mdi:linkedin" width="22" class="text-white"></iconify-icon>
+            </a>
+            <a href="#" class="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center hover:bg-white/20 transition-all duration-300 hover:scale-110" aria-label="Facebook">
+              <iconify-icon icon="mdi:facebook" width="22" class="text-white"></iconify-icon>
+            </a>
+            <a href="#" class="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center hover:bg-white/20 transition-all duration-300 hover:scale-110" aria-label="Twitter">
+              <iconify-icon icon="mdi:twitter" width="22" class="text-white"></iconify-icon>
+            </a>
+          </div>
+          <p class="text-sm text-white/50 mt-4">Let's build something great together.</p>
+        </div>
+      </div>
+
+      <!-- Divider -->
+      <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-sm text-white/40 font-light">
+          © <span id="currentYear"></span> Riad Hosaain Alif. All rights reserved.
+        </p>
+        <p class="text-sm text-white/40 font-light flex items-center gap-1.5">
+          Crafted with <iconify-icon icon="lucide:heart" width="14" class="text-red-400 footer-wave"></iconify-icon> & <iconify-icon icon="lucide:code-2" width="14" class="text-brand-200"></iconify-icon>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== BACK TO TOP ========== -->
+  <button id="backToTop" class="fixed bottom-6 right-6 w-12 h-12 rounded-xl bg-brand-500 text-white shadow-lg flex items-center justify-center hover:bg-brand-600 transition-all duration-300 z-50 opacity-0 translate-y-4 pointer-events-none" aria-label="Back to top">
+    <iconify-icon icon="lucide:chevron-up" width="22"></iconify-icon>
+  </button>
+
+  <!-- ========== JAVASCRIPT ========== -->
+  <script>
+    // ===== Typing Animation =====
+    const typingElement = document.getElementById('typingText');
+    const professions = ['Web Developer', 'Software Engineer', 'Frontend Developer', 'Full-Stack Developer', 'Problem Solver'];
+    let professionIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let typingSpeed = 80;
+
+    function typeText() {
+      const currentProfession = professions[professionIndex];
+
+      if (isDeleting) {
+        typingElement.textContent = currentProfession.substring(0, charIndex - 1);
+        charIndex--;
+        typingSpeed = 40;
+      } else {
+        typingElement.textContent = currentProfession.substring(0, charIndex + 1);
+        charIndex++;
+        typingSpeed = 80;
+      }
+
+      if (!isDeleting && charIndex === currentProfession.length) {
+        typingSpeed = 2000;
+        isDeleting = true;
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        professionIndex = (professionIndex + 1) % professions.length;
+        typingSpeed = 300;
+      }
+
+      setTimeout(typeText, typingSpeed);
+    }
+    typeText();
+
+    // ===== Image Particles =====
+    const particlesContainer = document.getElementById('particlesContainer');
+    function createParticle() {
+      const particle = document.createElement('div');
+      particle.classList.add('particle');
+      const size = Math.random() * 6 + 2;
+      const colors = ['#344E41', '#588157', '#A3B18A', '#8CB369'];
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      const left = Math.random() * 100;
+      const top = Math.random() * 100;
+      const dx = (Math.random() - 0.5) * 80;
+
+      particle.style.width = size + 'px';
+      particle.style.height = size + 'px';
+      particle.style.background = color;
+      particle.style.left = left + '%';
+      particle.style.top = top + '%';
+      particle.style.setProperty('--dx', dx + 'px');
+      particle.style.animationDuration = (Math.random() * 3 + 2) + 's';
+
+      particlesContainer.appendChild(particle);
+
+      setTimeout(() => particle.remove(), 5000);
+    }
+    setInterval(createParticle, 400);
+
+    // ===== Scroll Reveal =====
+    const revealElements = document.querySelectorAll('.reveal, .stagger-children');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // ===== Skill Progress Animation =====
+    const skillsSection = document.getElementById('skills');
+    const progressBars = document.querySelectorAll('.skill-progress');
+    const skillsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          progressBars.forEach(bar => bar.classList.add('animate'));
+        }
+      });
+    }, { threshold: 0.2 });
+    skillsObserver.observe(skillsSection);
+
+    // ===== Navbar Scroll Effect =====
+    const navbar = document.getElementById('navbar');
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      if (currentScroll > 80) {
+        navbar.style.boxShadow = '0 4px 20px rgba(0,0,0,0.08)';
+      } else {
+        navbar.style.boxShadow = 'none';
+      }
+      lastScroll = currentScroll;
+    });
+
+    // ===== Mobile Menu =====
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuClose = document.getElementById('menuClose');
+    const menuOverlay = document.getElementById('menuOverlay');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+    function openMenu() {
+      mobileMenu.classList.add('open');
+      menuOverlay.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu() {
+      mobileMenu.classList.remove('open');
+      menuOverlay.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    menuToggle.addEventListener('click', openMenu);
+    menuClose.addEventListener('click', closeMenu);
+    menuOverlay.addEventListener('click', closeMenu);
+    mobileNavLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+    // ===== Contact Form =====
+    const contactForm = document.getElementById('contactForm');
+    const formMessage = document.getElementById('formMessage');
+
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const inputs = contactForm.querySelectorAll('input, textarea');
+      let allFilled = true;
+
+      inputs.forEach(input => {
+        if (!input.value.trim()) {
+          allFilled = false;
+          input.style.borderColor = '#ef4444';
+          setTimeout(() => input.style.borderColor = '', 2000);
+        }
+      });
+
+      if (!allFilled) {
+        formMessage.textContent = 'Please fill in all fields.';
+        formMessage.className = 'mt-4 text-sm font-medium text-red-500';
+        formMessage.classList.remove('hidden');
+        return;
+      }
+
+      // Simulate sending
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<iconify-icon icon="lucide:loader-2" width="18" class="animate-spin"></iconify-icon> Sending...';
+
+      setTimeout(() => {
+        formMessage.textContent = '✓ Message sent successfully! I\'ll get back to you soon.';
+        formMessage.className = 'mt-4 text-sm font-medium text-green-600';
+        formMessage.classList.remove('hidden');
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = 'Send Message <iconify-icon icon="lucide:send" width="18"></iconify-icon>';
+        contactForm.reset();
+
+        setTimeout(() => formMessage.classList.add('hidden'), 5000);
+      }, 1500);
+    });
+
+    // ===== Back to Top =====
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 500) {
+        backToTop.style.opacity = '1';
+        backToTop.style.transform = 'translateY(0)';
+        backToTop.style.pointerEvents = 'auto';
+      } else {
+        backToTop.style.opacity = '0';
+        backToTop.style.transform = 'translateY(16px)';
+        backToTop.style.pointerEvents = 'none';
+      }
+    });
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // ===== Set Current Year =====
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // ===== Active Nav Link on Scroll =====
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 120;
+        if (window.pageYOffset >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('text-brand-700');
+        link.classList.add('text-stone-600');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('text-brand-700');
+          link.classList.remove('text-stone-600');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
