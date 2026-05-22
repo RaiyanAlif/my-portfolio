@@ -1,4 +1,4 @@
-# 🚀 Riad Hosaain Alif - Personal Portfolio
+# 🚀 Riad Hossain Alif - Personal Portfolio
 
 A modern, futuristic, and fully responsive personal portfolio website built using **HTML, CSS, and JavaScript**.  
 This portfolio showcases skills, education, hobbies, and contact information with premium UI/UX design, glassmorphism effects, smooth animations, and responsive layouts.
