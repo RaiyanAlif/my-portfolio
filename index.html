@@ -41,7 +41,6 @@
     ::-webkit-scrollbar-track { background: #E8EDDF; }
     ::-webkit-scrollbar-thumb { background: #A3B18A; border-radius: 3px; }
 
-    /* Typing Animation */
     .typing-text {
       display: inline-block;
       border-right: 3px solid #344E41;
@@ -53,7 +52,6 @@
       50% { border-color: transparent; }
     }
 
-    /* Floating particles around image */
     .particle {
       position: absolute;
       border-radius: 50%;
@@ -67,7 +65,6 @@
       100% { transform: translateY(-120px) translateX(var(--dx)) scale(0); opacity: 0; }
     }
 
-    /* Image glow animation */
     .image-glow {
       position: absolute;
       inset: -8px;
@@ -82,7 +79,6 @@
       100% { transform: rotate(360deg); }
     }
 
-    /* Scroll reveal */
     .reveal {
       opacity: 0;
       transform: translateY(40px);
@@ -93,7 +89,6 @@
       transform: translateY(0);
     }
 
-    /* Skill card hover */
     .skill-card {
       transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
@@ -108,7 +103,6 @@
       transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    /* Nav link underline */
     .nav-link {
       position: relative;
     }
@@ -126,7 +120,6 @@
       width: 100%;
     }
 
-    /* Floating background shapes */
     .bg-shape {
       position: absolute;
       border-radius: 50%;
@@ -164,7 +157,6 @@
       50% { transform: translate(40px, -50px) scale(1.05); }
     }
 
-    /* Hobbies icon animation */
     .hobby-card:hover .hobby-icon {
       animation: bounceHobby 0.6s ease;
     }
@@ -174,7 +166,6 @@
       60% { transform: translateY(-5px); }
     }
 
-    /* Contact form input focus */
     .form-input {
       transition: all 0.3s ease;
     }
@@ -183,7 +174,6 @@
       box-shadow: 0 0 0 3px rgba(52,78,65,0.1);
     }
 
-    /* Section divider */
     .section-divider {
       width: 60px;
       height: 4px;
@@ -191,7 +181,6 @@
       border-radius: 2px;
     }
 
-    /* Mobile menu */
     .mobile-menu {
       transform: translateX(100%);
       transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -200,7 +189,6 @@
       transform: translateX(0);
     }
 
-    /* Stagger children */
     .stagger-children > * {
       opacity: 0;
       transform: translateY(20px);
@@ -219,7 +207,6 @@
     .stagger-children.visible > *:nth-child(11) { transition-delay: 0.55s; opacity: 1; transform: translateY(0); }
     .stagger-children.visible > *:nth-child(12) { transition-delay: 0.6s; opacity: 1; transform: translateY(0); }
 
-    /* Progress bar animation */
     .skill-progress {
       width: 0;
       transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
@@ -228,7 +215,6 @@
       width: var(--progress);
     }
 
-    /* Pulse dot */
     .pulse-dot {
       animation: pulseDot 2s ease-in-out infinite;
     }
@@ -237,7 +223,6 @@
       50% { opacity: 0.5; transform: scale(1.5); }
     }
 
-    /* Image emergence animation */
     .image-emerge {
       animation: emergeFromBg 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
@@ -246,7 +231,6 @@
       100% { clip-path: circle(50% at 50% 50%); opacity: 1; }
     }
 
-    /* Sparkle on image */
     .sparkle {
       position: absolute;
       width: 4px;
@@ -261,7 +245,6 @@
       50% { opacity: 1; transform: scale(1); }
     }
 
-    /* Footer wave */
     .footer-wave {
       animation: waveFooter 3s ease-in-out infinite;
     }
@@ -281,7 +264,6 @@
   <!-- ========== NAVBAR ========== -->
   <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500" style="background: rgba(232,237,223,0.85); backdrop-filter: blur(12px);">
     <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-      <!-- Logo -->
       <a href="#hero" class="flex items-center gap-3 group">
         <div class="w-10 h-10 rounded-lg bg-brand-500 flex items-center justify-center transition-transform duration-300 group-hover:rotate-12">
           <span class="text-white font-serif font-semibold text-lg">R</span>
@@ -289,7 +271,6 @@
         <span class="font-serif font-semibold text-xl text-brand-700 tracking-tight">Alif</span>
       </a>
 
-      <!-- Desktop Nav -->
       <div class="hidden md:flex items-center gap-8">
         <a href="#hero" class="nav-link text-sm font-medium text-brand-700 hover:text-brand-500 transition-colors">Home</a>
         <a href="#about" class="nav-link text-sm font-medium text-stone-600 hover:text-brand-500 transition-colors">About</a>
@@ -301,7 +282,6 @@
         </a>
       </div>
 
-      <!-- Mobile Toggle -->
       <button id="menuToggle" class="md:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5 rounded-lg hover:bg-brand-100 transition-colors" aria-label="Menu">
         <span class="menu-line w-6 h-0.5 bg-brand-700 transition-all duration-300"></span>
         <span class="menu-line w-6 h-0.5 bg-brand-700 transition-all duration-300"></span>
@@ -330,7 +310,6 @@
   <section id="hero" class="min-h-screen flex items-center relative pt-20">
     <div class="max-w-7xl mx-auto px-6 w-full">
       <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
-        <!-- Left Content -->
         <div class="order-2 md:order-1">
           <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-100 mb-6 reveal">
             <span class="w-2 h-2 rounded-full bg-green-500 pulse-dot"></span>
@@ -344,7 +323,6 @@
           </h1>
 
           <div class="h-10 mb-6 reveal">
-            <!-- <span class="text-lg md:text-xl text-stone-500 font-light">I'm a </span> -->
             <span id="typingText" class="typing-text text-lg md:text-xl font-semibold text-brand-500"></span>
           </div>
 
@@ -362,11 +340,10 @@
             </a>
           </div>
 
-          <!-- Quick Stats -->
           <div class="flex gap-8 mt-10 reveal">
             <div>
               <div class="text-2xl font-serif font-semibold text-brand-700">3.47</div>
-              <div class="text-xs text-stone-400 uppercase tracking-wider">Diploma CGPA</div>
+              <div class="text-xs text-stone-400 uppercase tracking-wider">Diploma GPA</div>
             </div>
             <div class="w-px bg-stone-200"></div>
             <div>
@@ -381,28 +358,18 @@
           </div>
         </div>
 
-        <!-- Right - Image -->
         <div class="order-1 md:order-2 flex justify-center reveal">
           <div class="relative" id="imageContainer">
-            <!-- Glow -->
             <div class="image-glow"></div>
-
-            <!-- Sparkles -->
             <div class="sparkle" style="top: 5%; left: 10%; animation-delay: 0s;"></div>
             <div class="sparkle" style="top: 15%; right: 5%; animation-delay: 0.5s;"></div>
             <div class="sparkle" style="bottom: 20%; left: 0%; animation-delay: 1s;"></div>
             <div class="sparkle" style="bottom: 10%; right: 15%; animation-delay: 1.5s;"></div>
             <div class="sparkle" style="top: 40%; left: -5%; animation-delay: 0.8s;"></div>
-
-            <!-- Particles Container -->
             <div id="particlesContainer" class="absolute inset-0 pointer-events-none overflow-visible"></div>
-
-            <!-- Profile Image -->
             <div class="relative z-10 w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden image-emerge border-4 border-white shadow-2xl">
               <img src="./personal.jpg" alt="Riad Hossain Alif" class="w-full h-full object-cover">
             </div>
-
-            <!-- Decorative Ring -->
             <div class="absolute inset-[-16px] rounded-full border-2 border-dashed border-brand-200 opacity-50 animate-spin" style="animation-duration: 30s;"></div>
             <div class="absolute inset-[-32px] rounded-full border border-dotted border-brand-100 opacity-30 animate-spin" style="animation-duration: 45s; animation-direction: reverse;"></div>
           </div>
@@ -410,7 +377,6 @@
       </div>
     </div>
 
-    <!-- Scroll indicator -->
     <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 reveal">
       <span class="text-xs text-stone-400 uppercase tracking-widest">Scroll</span>
       <div class="w-5 h-8 border-2 border-stone-300 rounded-full flex justify-center pt-1">
@@ -429,12 +395,10 @@
       </div>
 
       <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
-        <!-- About Image -->
         <div class="reveal">
           <div class="relative rounded-2xl overflow-hidden shadow-xl group">
             <img src="./about.png" alt="Workspace" class="w-full h-[400px] object-cover transition-transform duration-700 group-hover:scale-105">
             <div class="absolute inset-0 bg-gradient-to-t from-brand-700/40 to-transparent"></div>
-            <!-- Floating badge -->
             <div class="absolute bottom-6 left-6 bg-white/90 backdrop-blur-sm rounded-xl px-5 py-3 shadow-lg">
               <div class="flex items-center gap-3">
                 <div class="w-10 h-10 rounded-full bg-brand-500 flex items-center justify-center">
@@ -449,19 +413,17 @@
           </div>
         </div>
 
-        <!-- About Content -->
         <div class="reveal">
           <h3 class="font-serif text-2xl font-semibold text-brand-700 mb-4">
             A passionate developer who loves turning ideas into reality
           </h3>
           <p class="text-stone-500 font-light leading-relaxed mb-4">
-            I'm <strong class="text-brand-700 font-medium">Riad Hossain Alif</strong>, a dedicated web developer and software engineer from Bangladesh. I completed my Diploma in Computer Science with a <strong class="text-brand-500 font-medium">3.47 CGPA</strong>, building a solid foundation in programming and technology.
+            I'm <strong class="text-brand-700 font-medium">Riad Hossain Alif</strong>, a dedicated web developer and software engineer from Bangladesh. I completed my Diploma in Computer Science with a <strong class="text-brand-500 font-medium">3.47 GPA</strong>, building a solid foundation in programming and technology.
           </p>
           <p class="text-stone-500 font-light leading-relaxed mb-6">
             Currently, I'm pursuing my <strong class="text-brand-700 font-medium">BSc in Computer Science</strong> while continuously expanding my skill set. From frontend magic with React & Next.js to backend power with Node.js & Django — I enjoy every layer of development.
           </p>
 
-          <!-- Info Grid -->
           <div class="grid grid-cols-2 gap-4 mb-8">
             <div class="flex items-center gap-3">
               <div class="w-8 h-8 rounded-lg bg-brand-100 flex items-center justify-center flex-shrink-0">
@@ -508,24 +470,21 @@
         </div>
       </div>
 
-      <!-- Education Timeline -->
       <div class="mt-20 reveal">
         <h3 class="font-serif text-2xl font-semibold text-brand-700 text-center mb-10">Education Journey</h3>
         <div class="max-w-2xl mx-auto relative">
           <div class="absolute left-6 md:left-1/2 top-0 bottom-0 w-0.5 bg-brand-200 md:-translate-x-px"></div>
 
-          <!-- Diploma -->
           <div class="relative flex md:justify-end mb-10 pl-16 md:pl-0 md:pr-[calc(50%+2rem)]">
             <div class="absolute left-4 md:left-1/2 top-1 w-4 h-4 rounded-full bg-brand-500 border-4 border-brand-100 md:-translate-x-1/2 z-10"></div>
             <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow w-full">
               <span class="text-xs font-semibold text-brand-300 uppercase tracking-wider">Completed</span>
               <h4 class="font-serif font-semibold text-brand-700 mt-1">Diploma in Computer Science</h4>
-              <p class="text-sm text-stone-400 mt-1">CGPA: 3.47 / 4.0</p>
+              <p class="text-sm text-stone-400 mt-1">GPA: 3.47 / 4.0</p>
               <p class="text-sm text-stone-500 font-light mt-2">Built a strong foundation in programming, databases, networking, and software development principles.</p>
             </div>
           </div>
 
-          <!-- BSc -->
           <div class="relative flex md:justify-start mb-4 pl-16 md:pl-[calc(50%+2rem)]">
             <div class="absolute left-4 md:left-1/2 top-1 w-4 h-4 rounded-full bg-brand-300 border-4 border-brand-100 md:-translate-x-1/2 z-10 pulse-dot"></div>
             <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow w-full border-2 border-brand-100">
@@ -545,7 +504,6 @@
 
   <!-- ========== SKILLS SECTION ========== -->
   <section id="skills" class="py-24 bg-brand-700 relative overflow-hidden">
-    <!-- Decorative -->
     <div class="absolute top-0 left-0 w-64 h-64 rounded-full bg-brand-600 opacity-30 -translate-x-1/2 -translate-y-1/2"></div>
     <div class="absolute bottom-0 right-0 w-96 h-96 rounded-full bg-brand-600 opacity-20 translate-x-1/3 translate-y-1/3"></div>
 
@@ -557,9 +515,7 @@
         <p class="text-brand-200 font-light mt-4 max-w-lg mx-auto">Technologies and tools I work with to bring ideas to life</p>
       </div>
 
-      <!-- Skills Grid -->
       <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 stagger-children" id="skillsGrid">
-        <!-- HTML -->
         <div class="skill-card bg-white/10 backdrop-blur-sm rounded-xl p-5 text-center border border-white/10 cursor-default">
           <div class="skill-icon w-14 h-14 mx-auto mb-3 flex items-center justify-center">
             <iconify-icon icon="logos:html-5" width="42"></iconify-icon>
@@ -570,7 +526,6 @@
           </div>
         </div>
 
-        <!-- CSS -->
         <div class="skill-card bg-white/10 backdrop-blur-sm rounded-xl p-5 text-center border border-white/10 cursor-default">
           <div class="skill-icon w-14 h-14 mx-auto mb-3 flex items-center justify-center">
             <iconify-icon icon="logos:css-3" width="42"></iconify-icon>
@@ -581,7 +536,6 @@
           </div>
         </div>
 
-        <!-- JavaScript -->
         <div class="skill-card bg-white/10 backdrop-blur-sm rounded-xl p-5 text-center border border-white/10 cursor-default">
           <div class="skill-icon w-14 h-14 mx-auto mb-3 flex items-center justify-center">
             <iconify-icon icon="logos:javascript" width="42"></iconify-icon>
@@ -592,7 +546,6 @@
           </div>
         </div>
 
-        <!-- React -->
         <div class="skill-card bg-white/10 backdrop-blur-sm rounded-xl p-5 text-center border border-white/10 cursor-default">
           <div class="skill-icon w-14 h-14 mx-auto mb-3 flex items-center justify-center">
             <iconify-icon icon="logos:react" width="42"></iconify-icon>
@@ -603,7 +556,6 @@
           </div>
         </div>
 
-        <!-- Next.js -->
         <div class="skill-card bg-white/10 backdrop-blur-sm rounded-xl p-5 text-center border border-white/10 cursor-default">
           <div class="skill-icon w-14 h-14 mx-auto mb-3 flex items-center justify-center">
             <iconify-icon icon="logos:nextjs-icon" width="42" style="color: white;"></iconify-icon>
@@ -614,7 +566,6 @@
           </div>
         </div>
 
-        <!-- Node.js -->
         <div class="skill-card bg-white/10 backdrop-blur-sm rounded-xl p-5 text-center border border-white/10 cursor-default">
           <div class="skill-icon w-14 h-14 mx-auto mb-3 flex items-center justify-center">
             <iconify-icon icon="logos:nodejs-icon" width="42"></iconify-icon>
@@ -625,7 +576,6 @@
           </div>
         </div>
 
-        <!-- PostgreSQL -->
         <div class="skill-card bg-white/10 backdrop-blur-sm rounded-xl p-5 text-center border border-white/10 cursor-default">
           <div class="skill-icon w-14 h-14 mx-auto mb-3 flex items-center justify-center">
             <iconify-icon icon="logos:postgresql" width="42"></iconify-icon>
@@ -636,7 +586,6 @@
           </div>
         </div>
 
-        <!-- MongoDB -->
         <div class="skill-card bg-white/10 backdrop-blur-sm rounded-xl p-5 text-center border border-white/10 cursor-default">
           <div class="skill-icon w-14 h-14 mx-auto mb-3 flex items-center justify-center">
             <iconify-icon icon="logos:mongodb-icon" width="42"></iconify-icon>
@@ -647,7 +596,6 @@
           </div>
         </div>
 
-        <!-- Python -->
         <div class="skill-card bg-white/10 backdrop-blur-sm rounded-xl p-5 text-center border border-white/10 cursor-default">
           <div class="skill-icon w-14 h-14 mx-auto mb-3 flex items-center justify-center">
             <iconify-icon icon="logos:python" width="42"></iconify-icon>
@@ -658,7 +606,6 @@
           </div>
         </div>
 
-        <!-- Django -->
         <div class="skill-card bg-white/10 backdrop-blur-sm rounded-xl p-5 text-center border border-white/10 cursor-default">
           <div class="skill-icon w-14 h-14 mx-auto mb-3 flex items-center justify-center">
             <iconify-icon icon="logos:django-icon" width="42" style="color: white;"></iconify-icon>
@@ -669,7 +616,6 @@
           </div>
         </div>
 
-        <!-- Networking -->
         <div class="skill-card bg-white/10 backdrop-blur-sm rounded-xl p-5 text-center border border-white/10 cursor-default">
           <div class="skill-icon w-14 h-14 mx-auto mb-3 flex items-center justify-center">
             <iconify-icon icon="mdi:network-outline" width="42" style="color: #A3B18A;"></iconify-icon>
@@ -680,7 +626,6 @@
           </div>
         </div>
 
-        <!-- Docker -->
         <div class="skill-card bg-white/10 backdrop-blur-sm rounded-xl p-5 text-center border border-white/10 cursor-default">
           <div class="skill-icon w-14 h-14 mx-auto mb-3 flex items-center justify-center">
             <iconify-icon icon="logos:docker-icon" width="42"></iconify-icon>
@@ -705,7 +650,6 @@
       </div>
 
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 stagger-children" id="hobbiesGrid">
-        <!-- Coding -->
         <div class="hobby-card group bg-white rounded-xl p-6 text-center shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-default">
           <div class="hobby-icon w-16 h-16 mx-auto mb-4 rounded-2xl bg-brand-50 flex items-center justify-center group-hover:bg-brand-500 transition-colors duration-300">
             <iconify-icon icon="lucide:code-2" width="28" class="text-brand-500 group-hover:text-white transition-colors duration-300"></iconify-icon>
@@ -714,7 +658,6 @@
           <p class="text-xs text-stone-400 mt-1">Building things</p>
         </div>
 
-        <!-- Gaming -->
         <div class="hobby-card group bg-white rounded-xl p-6 text-center shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-default">
           <div class="hobby-icon w-16 h-16 mx-auto mb-4 rounded-2xl bg-brand-50 flex items-center justify-center group-hover:bg-brand-500 transition-colors duration-300">
             <iconify-icon icon="lucide:gamepad-2" width="28" class="text-brand-500 group-hover:text-white transition-colors duration-300"></iconify-icon>
@@ -723,7 +666,6 @@
           <p class="text-xs text-stone-400 mt-1">Strategy & RPG</p>
         </div>
 
-        <!-- Reading -->
         <div class="hobby-card group bg-white rounded-xl p-6 text-center shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-default">
           <div class="hobby-icon w-16 h-16 mx-auto mb-4 rounded-2xl bg-brand-50 flex items-center justify-center group-hover:bg-brand-500 transition-colors duration-300">
             <iconify-icon icon="lucide:book-open" width="28" class="text-brand-500 group-hover:text-white transition-colors duration-300"></iconify-icon>
@@ -732,7 +674,6 @@
           <p class="text-xs text-stone-400 mt-1">Tech & Sci-Fi</p>
         </div>
 
-        <!-- Music -->
         <div class="hobby-card group bg-white rounded-xl p-6 text-center shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-default">
           <div class="hobby-icon w-16 h-16 mx-auto mb-4 rounded-2xl bg-brand-50 flex items-center justify-center group-hover:bg-brand-500 transition-colors duration-300">
             <iconify-icon icon="lucide:music" width="28" class="text-brand-500 group-hover:text-white transition-colors duration-300"></iconify-icon>
@@ -741,7 +682,6 @@
           <p class="text-xs text-stone-400 mt-1">Lo-fi & Ambient</p>
         </div>
 
-        <!-- Traveling -->
         <div class="hobby-card group bg-white rounded-xl p-6 text-center shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-default">
           <div class="hobby-icon w-16 h-16 mx-auto mb-4 rounded-2xl bg-brand-50 flex items-center justify-center group-hover:bg-brand-500 transition-colors duration-300">
             <iconify-icon icon="lucide:plane" width="28" class="text-brand-500 group-hover:text-white transition-colors duration-300"></iconify-icon>
@@ -767,10 +707,8 @@
       </div>
 
       <div class="grid md:grid-cols-5 gap-10 lg:gap-16">
-        <!-- Contact Info -->
         <div class="md:col-span-2 reveal">
           <div class="space-y-6">
-            <!-- Email -->
             <div class="flex items-start gap-4 group">
               <div class="w-12 h-12 rounded-xl bg-brand-500 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300 shadow-md">
                 <iconify-icon icon="lucide:mail" width="20" class="text-white"></iconify-icon>
@@ -781,18 +719,16 @@
               </div>
             </div>
 
-            <!-- Phone -->
             <div class="flex items-start gap-4 group">
               <div class="w-12 h-12 rounded-xl bg-brand-500 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300 shadow-md">
                 <iconify-icon icon="lucide:phone" width="20" class="text-white"></iconify-icon>
               </div>
               <div>
                 <div class="text-sm font-semibold text-brand-700">Phone</div>
-                <a href="tel:+8801712345678" class="text-sm text-stone-500 hover:text-brand-500 transition-colors">+880 1533-377226</a>
+                <a href="tel:+8801712345678" class="text-sm text-stone-500 hover:text-brand-500 transition-colors">+880 1712-345678</a>
               </div>
             </div>
 
-            <!-- Location -->
             <div class="flex items-start gap-4 group">
               <div class="w-12 h-12 rounded-xl bg-brand-500 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300 shadow-md">
                 <iconify-icon icon="lucide:map-pin" width="20" class="text-white"></iconify-icon>
@@ -804,20 +740,20 @@
             </div>
           </div>
 
-          <!-- Social Links -->
+          <!-- Social Links — Contact Section -->
           <div class="mt-10">
             <div class="text-sm font-semibold text-brand-700 mb-4">Follow Me</div>
             <div class="flex gap-3">
-              <a href="#" class="w-11 h-11 rounded-xl bg-white flex items-center justify-center shadow-md hover:bg-brand-500 hover:shadow-lg transition-all duration-300 group">
+              <a href="https://github.com/RaiyanAlif" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-xl bg-white flex items-center justify-center shadow-md hover:bg-brand-500 hover:shadow-lg transition-all duration-300 group" aria-label="GitHub">
                 <iconify-icon icon="mdi:github" width="22" class="text-brand-700 group-hover:text-white transition-colors"></iconify-icon>
               </a>
-              <a href="#" class="w-11 h-11 rounded-xl bg-white flex items-center justify-center shadow-md hover:bg-brand-500 hover:shadow-lg transition-all duration-300 group">
+              <a href="https://www.linkedin.com/in/raiyanalif/" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-xl bg-white flex items-center justify-center shadow-md hover:bg-brand-500 hover:shadow-lg transition-all duration-300 group" aria-label="LinkedIn">
                 <iconify-icon icon="mdi:linkedin" width="22" class="text-brand-700 group-hover:text-white transition-colors"></iconify-icon>
               </a>
-              <a href="#" class="w-11 h-11 rounded-xl bg-white flex items-center justify-center shadow-md hover:bg-brand-500 hover:shadow-lg transition-all duration-300 group">
+              <a href="https://www.facebook.com/RiadHossain13" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-xl bg-white flex items-center justify-center shadow-md hover:bg-brand-500 hover:shadow-lg transition-all duration-300 group" aria-label="Facebook">
                 <iconify-icon icon="mdi:facebook" width="22" class="text-brand-700 group-hover:text-white transition-colors"></iconify-icon>
               </a>
-              <a href="#" class="w-11 h-11 rounded-xl bg-white flex items-center justify-center shadow-md hover:bg-brand-500 hover:shadow-lg transition-all duration-300 group">
+              <a href="https://twitter.com/rayan_alif_13" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-xl bg-white flex items-center justify-center shadow-md hover:bg-brand-500 hover:shadow-lg transition-all duration-300 group" aria-label="Twitter / X">
                 <iconify-icon icon="mdi:twitter" width="22" class="text-brand-700 group-hover:text-white transition-colors"></iconify-icon>
               </a>
             </div>
@@ -862,7 +798,6 @@
 
     <div class="max-w-7xl mx-auto px-6">
       <div class="grid md:grid-cols-3 gap-10 mb-12">
-        <!-- Brand -->
         <div>
           <div class="flex items-center gap-3 mb-4">
             <div class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center">
@@ -875,7 +810,6 @@
           </p>
         </div>
 
-        <!-- Quick Links -->
         <div>
           <h4 class="font-semibold text-sm uppercase tracking-wider text-brand-200 mb-4">Quick Links</h4>
           <div class="space-y-3">
@@ -886,20 +820,20 @@
           </div>
         </div>
 
-        <!-- Social -->
+        <!-- Footer Social Links -->
         <div>
           <h4 class="font-semibold text-sm uppercase tracking-wider text-brand-200 mb-4">Connect</h4>
           <div class="flex gap-3">
-            <a href="#" class="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center hover:bg-white/20 transition-all duration-300 hover:scale-110" aria-label="GitHub">
+            <a href="https://github.com/RaiyanAlif" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center hover:bg-white/20 transition-all duration-300 hover:scale-110" aria-label="GitHub">
               <iconify-icon icon="mdi:github" width="22" class="text-white"></iconify-icon>
             </a>
-            <a href="#" class="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center hover:bg-white/20 transition-all duration-300 hover:scale-110" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/in/raiyanalif/" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center hover:bg-white/20 transition-all duration-300 hover:scale-110" aria-label="LinkedIn">
               <iconify-icon icon="mdi:linkedin" width="22" class="text-white"></iconify-icon>
             </a>
-            <a href="#" class="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center hover:bg-white/20 transition-all duration-300 hover:scale-110" aria-label="Facebook">
+            <a href="https://www.facebook.com/RiadHossain13" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center hover:bg-white/20 transition-all duration-300 hover:scale-110" aria-label="Facebook">
               <iconify-icon icon="mdi:facebook" width="22" class="text-white"></iconify-icon>
             </a>
-            <a href="#" class="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center hover:bg-white/20 transition-all duration-300 hover:scale-110" aria-label="Twitter">
+            <a href="https://twitter.com/rayan_alif_13" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center hover:bg-white/20 transition-all duration-300 hover:scale-110" aria-label="Twitter / X">
               <iconify-icon icon="mdi:twitter" width="22" class="text-white"></iconify-icon>
             </a>
           </div>
@@ -907,7 +841,6 @@
         </div>
       </div>
 
-      <!-- Divider -->
       <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
         <p class="text-sm text-white/40 font-light">
           © <span id="currentYear"></span> Riad Hossain Alif. All rights reserved.
@@ -926,7 +859,6 @@
 
   <!-- ========== JAVASCRIPT ========== -->
   <script>
-    // ===== Typing Animation =====
     const typingElement = document.getElementById('typingText');
     const professions = ['Web Developer', 'Software Engineer', 'Frontend Developer', 'Full-Stack Developer', 'Problem Solver'];
     let professionIndex = 0;
@@ -936,7 +868,6 @@
 
     function typeText() {
       const currentProfession = professions[professionIndex];
-
       if (isDeleting) {
         typingElement.textContent = currentProfession.substring(0, charIndex - 1);
         charIndex--;
@@ -946,7 +877,6 @@
         charIndex++;
         typingSpeed = 80;
       }
-
       if (!isDeleting && charIndex === currentProfession.length) {
         typingSpeed = 2000;
         isDeleting = true;
@@ -955,12 +885,10 @@
         professionIndex = (professionIndex + 1) % professions.length;
         typingSpeed = 300;
       }
-
       setTimeout(typeText, typingSpeed);
     }
     typeText();
 
-    // ===== Image Particles =====
     const particlesContainer = document.getElementById('particlesContainer');
     function createParticle() {
       const particle = document.createElement('div');
@@ -971,7 +899,6 @@
       const left = Math.random() * 100;
       const top = Math.random() * 100;
       const dx = (Math.random() - 0.5) * 80;
-
       particle.style.width = size + 'px';
       particle.style.height = size + 'px';
       particle.style.background = color;
@@ -979,51 +906,33 @@
       particle.style.top = top + '%';
       particle.style.setProperty('--dx', dx + 'px');
       particle.style.animationDuration = (Math.random() * 3 + 2) + 's';
-
       particlesContainer.appendChild(particle);
-
       setTimeout(() => particle.remove(), 5000);
     }
     setInterval(createParticle, 400);
 
-    // ===== Scroll Reveal =====
     const revealElements = document.querySelectorAll('.reveal, .stagger-children');
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
+        if (entry.isIntersecting) entry.target.classList.add('visible');
       });
     }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
-
     revealElements.forEach(el => revealObserver.observe(el));
 
-    // ===== Skill Progress Animation =====
     const skillsSection = document.getElementById('skills');
     const progressBars = document.querySelectorAll('.skill-progress');
     const skillsObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          progressBars.forEach(bar => bar.classList.add('animate'));
-        }
+        if (entry.isIntersecting) progressBars.forEach(bar => bar.classList.add('animate'));
       });
     }, { threshold: 0.2 });
     skillsObserver.observe(skillsSection);
 
-    // ===== Navbar Scroll Effect =====
     const navbar = document.getElementById('navbar');
-    let lastScroll = 0;
     window.addEventListener('scroll', () => {
-      const currentScroll = window.pageYOffset;
-      if (currentScroll > 80) {
-        navbar.style.boxShadow = '0 4px 20px rgba(0,0,0,0.08)';
-      } else {
-        navbar.style.boxShadow = 'none';
-      }
-      lastScroll = currentScroll;
+      navbar.style.boxShadow = window.pageYOffset > 80 ? '0 4px 20px rgba(0,0,0,0.08)' : 'none';
     });
 
-    // ===== Mobile Menu =====
     const menuToggle = document.getElementById('menuToggle');
     const mobileMenu = document.getElementById('mobileMenu');
     const menuClose = document.getElementById('menuClose');
@@ -1046,15 +955,12 @@
     menuOverlay.addEventListener('click', closeMenu);
     mobileNavLinks.forEach(link => link.addEventListener('click', closeMenu));
 
-    // ===== Contact Form =====
     const contactForm = document.getElementById('contactForm');
     const formMessage = document.getElementById('formMessage');
-
     contactForm.addEventListener('submit', function(e) {
       e.preventDefault();
       const inputs = contactForm.querySelectorAll('input, textarea');
       let allFilled = true;
-
       inputs.forEach(input => {
         if (!input.value.trim()) {
           allFilled = false;
@@ -1062,19 +968,15 @@
           setTimeout(() => input.style.borderColor = '', 2000);
         }
       });
-
       if (!allFilled) {
         formMessage.textContent = 'Please fill in all fields.';
         formMessage.className = 'mt-4 text-sm font-medium text-red-500';
         formMessage.classList.remove('hidden');
         return;
       }
-
-      // Simulate sending
       const submitBtn = contactForm.querySelector('button[type="submit"]');
       submitBtn.disabled = true;
       submitBtn.innerHTML = '<iconify-icon icon="lucide:loader-2" width="18" class="animate-spin"></iconify-icon> Sending...';
-
       setTimeout(() => {
         formMessage.textContent = '✓ Message sent successfully! I\'ll get back to you soon.';
         formMessage.className = 'mt-4 text-sm font-medium text-green-600';
@@ -1082,12 +984,10 @@
         submitBtn.disabled = false;
         submitBtn.innerHTML = 'Send Message <iconify-icon icon="lucide:send" width="18"></iconify-icon>';
         contactForm.reset();
-
         setTimeout(() => formMessage.classList.add('hidden'), 5000);
       }, 1500);
     });
 
-    // ===== Back to Top =====
     const backToTop = document.getElementById('backToTop');
     window.addEventListener('scroll', () => {
       if (window.pageYOffset > 500) {
@@ -1100,26 +1000,17 @@
         backToTop.style.pointerEvents = 'none';
       }
     });
-    backToTop.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-    // ===== Set Current Year =====
     document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-    // ===== Active Nav Link on Scroll =====
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
-
     window.addEventListener('scroll', () => {
       let current = '';
       sections.forEach(section => {
-        const sectionTop = section.offsetTop - 120;
-        if (window.pageYOffset >= sectionTop) {
-          current = section.getAttribute('id');
-        }
+        if (window.pageYOffset >= section.offsetTop - 120) current = section.getAttribute('id');
       });
-
       navLinks.forEach(link => {
         link.classList.remove('text-brand-700');
         link.classList.add('text-stone-600');
